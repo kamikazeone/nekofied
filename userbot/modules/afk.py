@@ -56,7 +56,7 @@ async def mention_afk(mention):
             if mention.sender_id not in USERS:
                 if AFKREASON:
                     await mention.reply(
-                        f"Sepurane Cak! Aku Ra Nyekel HP `{AFKREASON}`. Tenang Wae, Mengko Aku Bali Neh Sabar Nggeh ^_^"
+                        f"Sepurane Cak! Aku Ra Nyekel HP, Amergo `{AFKREASON}`. Tenang Wae, Mengko Aku Bali Neh Sabar Nggeh ^_^"
                     )
                 else:
                     await mention.reply(
@@ -146,23 +146,23 @@ async def type_afk_is_not_true(notafk):
     AFKREASON = gvarstatus("AFK_REASON")
     if ISAFK:
         delgvar("AFK_STATUS")
-        await notafk.respond("I'm no longer AFK.")
+        await notafk.respond("Aku Wes Nyekel HP Cak, Ono Opo?")
         delgvar("AFK_REASON")
         afk_info = await notafk.respond(
-            "`You recieved " +
+            "`Sampeyan Mpun Bali " +
             str(COUNT_MSG) +
-            " messages while you were away. Check log for more details.`"
+            " Pesan Pas Sampeyan Lungo, Cek Log Gae Selanjute`"
         )
         await sleep(4)
         await afk_info.delete()
         if BOTLOG:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
-                "You've recieved " +
+                "Sampeyan Ndue Pesan " +
                 str(COUNT_MSG) +
-                " messages from " +
+                " Pesan Teko  " +
                 str(len(USERS)) +
-                " chats while you were away",
+                " Chat Pas Koe Ra Nyekel Hp",
             )
             for i in USERS:
                 name = await notafk.client.get_entity(i)
