@@ -56,7 +56,7 @@ async def mention_afk(mention):
             if mention.sender_id not in USERS:
                 if AFKREASON:
                     await mention.reply(
-                        f"Sorry! I am AFK because of `{AFKREASON}`. I'll have a look at this as soon as I come back."
+                        f"Sepurane Cak! Aku Ra Nyekel HP `{AFKREASON}`. Tenang Wae, Mengko Aku Bali Neh Sabar Nggeh ^_^"
                     )
                 else:
                     await mention.reply(
