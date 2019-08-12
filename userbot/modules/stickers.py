@@ -34,20 +34,20 @@ async def kang(args):
 
         if message and message.media:
             if isinstance(message.media, MessageMediaPhoto):
-                await args.edit("Kanging this pic...")
+                await args.edit("Kang Photo Iki...")
                 photo = io.BytesIO()
                 photo = await bot.download_media(message.photo, photo)
             elif "image" in message.media.document.mime_type.split('/'):
-                await args.edit("Kanging this pic...")
+                await args.edit("Kang Photo Iki...")
                 photo = io.BytesIO()
                 await bot.download_file(message.media.document, photo)
                 if (DocumentAttributeFilename(file_name='sticker.webp')
                         in message.media.document.attributes):
-                    await args.edit("Enslaving this sticker...")
+                    await args.edit("Ndandani Stiker Iki...")
                     emoji = message.media.document.attributes[1].alt
                     emojibypass = True
             elif "tgsticker" in message.media.document.mime_type:
-                await args.edit("Taming this animated sticker...")
+                await args.edit("Njinakno Stiker Animasi Iki...")
                 await bot.download_file(message.media.document, 'AnimatedSticker.tgs')
                 
                 attributes = message.media.document.attributes
@@ -59,10 +59,10 @@ async def kang(args):
                 is_anim = True
                 photo = 1
             else:
-                await args.edit("Unsupported File!")
+                await args.edit("File Ga Support Cookk!")
                 return
         else:
-            await args.edit("Reply to photo to kang it bruh")
+            await args.edit("Reply Nang Photo Nggo Kang")
             return
 
         if photo:
@@ -129,7 +129,7 @@ async def kang(args):
                     # Ensure user doesn't get spamming notifications
                     await bot.send_read_acknowledge(conv.chat_id)
             else:
-                await args.edit("Brewing new Pack...")
+                await args.edit("Nyediake Pack Anyar...")
                 async with bot.conversation('Stickers') as conv:
                     await conv.send_message(cmd)
                     await conv.get_response()
@@ -172,7 +172,7 @@ async def kang(args):
                     await bot.send_read_acknowledge(conv.chat_id)
 
             await args.edit(
-                f"Sticker kanged successfully! Pack can be found [here](t.me/addstickers/{packname})",
+                f"Sticker Sukses Di Colong! Paketmu Iso Ditemukake [Rene](t.me/addstickers/{packname})",
                 parse_mode='md'
             )
 
@@ -206,11 +206,11 @@ async def get_pack_info(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         rep_msg = await event.get_reply_message()
         if not rep_msg.document:
-            await event.client.edit("Reply to a sticker to get the pack details")
+            await event.client.edit("Reply Sticker Gae Ngowahi Detail Paket'e")
             return
         stickerset_attr = rep_msg.document.attributes[1]
         if not isinstance(stickerset_attr, DocumentAttributeSticker):
-            await event.client.edit("This is not a sticker. Reply to a sticker.")
+            await event.client.edit("Iki Dudu Sticker Goblogg!. Reply'en Nang Stcker'e tLol.")
             return
         get_stickerset = await event.client(GetStickerSetRequest(InputStickerSetID(id=stickerset_attr.stickerset.id, access_hash=stickerset_attr.stickerset.access_hash)))
         pack_emojis = []
