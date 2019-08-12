@@ -15,7 +15,7 @@ from userbot.events import register
 from userbot import GOOGLE_CHROME_BIN, CHROME_DRIVER, CMD_HELP
 
 
-@register(pattern=r".screencapture (.*)", outgoing=True)
+@register(pattern=r".scrn (.*)", outgoing=True)
 async def capture(url):
     """ For .screencapture command, capture a website and send the photo. """
     if not url.text[0].isalpha() and url.text[0] not in ("/", "#", "@", "!"):
