@@ -140,6 +140,7 @@ else:
 
 
 # Global Variables
+HELPER = {}
 COUNT_MSG = 0
 USERS = {}
 COUNT_PM = {}
