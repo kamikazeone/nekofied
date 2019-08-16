@@ -206,15 +206,15 @@ async def get_pack_info(event):
        if not event.is_reply:
             await bot.update_message(event, PACKINFO_HELP)
             return
-        rep_msg = await event.get_reply_message()
+        rep_msg = await bot.get_reply_message()
         if not rep_msg.document:
             await event.edit("Reply Sticker Gae Ngowahi Detail Paket'e")
             return
         stickerset_attr = rep_msg.document.attributes[1]
         if not isinstance(stickerset_attr, DocumentAttributeSticker):
-            await event.client.edit("Iki Dudu Sticker Goblogg!. Reply'en Nang Stcker'e tLol.")
+            await event.edit("Iki Dudu Sticker Goblogg!. Reply'en Nang Stcker'e tLol.")
             return
-        get_stickerset = await event.client(GetStickerSetRequest(InputStickerSetID(id=stickerset_attr.stickerset.id, access_hash=stickerset_attr.stickerset.access_hash)))
+        get_stickerset = await bot(GetStickerSetRequest(InputStickerSetID(id=stickerset_attr.stickerset.id, access_hash=stickerset_attr.stickerset.access_hash)))
         pack_emojis = []
         for document_sticker in get_stickerset.packs:
             if document_sticker.emoticon not in pack_emojis:
