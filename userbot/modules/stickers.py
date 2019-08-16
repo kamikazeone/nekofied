@@ -209,7 +209,7 @@ async def get_pack_info(event):
             return
         rep_msg = await event.get_reply_message()
         if not rep_msg.document:
-            await event.client.edit("Reply Sticker Gae Ngowahi Detail Paket'e")
+            await event.edit("Reply Sticker Gae Ngowahi Detail Paket'e")
             return
         stickerset_attr = rep_msg.document.attributes[1]
         if not isinstance(stickerset_attr, DocumentAttributeSticker):
