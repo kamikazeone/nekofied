@@ -29,6 +29,7 @@ pytube>=9.5.1
 pytz
 qrcode
 telegraph
+spcli
 requests>=2.18.4
 speedtest-cli>=2.0.2
 sqlalchemy>=1.2
