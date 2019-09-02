@@ -99,8 +99,6 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY", None
     )
 
-HELPER = {}
-
 # Clean Welcome
 CLEAN_WELCOME = sb(os.environ.get(
     "CLEAN_WELCOME", "True"
